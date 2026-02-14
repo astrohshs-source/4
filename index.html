@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Our Love Story ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#ff9ab0,#ff5f8f);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+color:white;
+text-align:center;
+}
+
+.slide{
+position:absolute;
+opacity:0;
+transition:opacity 1.5s;
+max-width:600px;
+}
+
+.active{opacity:1;}
+
+h1{font-size:48px;}
+p{font-size:24px;}
+
+/* falling hearts */
+.heart{
+position:fixed;
+top:-30px;
+font-size:26px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-50px);}
+100%{transform:translateY(110vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide active">
+<h1>Propose Day 💍</h1>
+<p>Sajal, my 3.5 little baccha 🐣❤️<br>
+You are my everything.<br>
+Will you stay with me forever?</p>
+</div>
+
+<div class="slide">
+<h1>Chocolate Day 🍫</h1>
+<p>You are sweeter than every chocolate in the world.</p>
+</div>
+
+<div class="slide">
+<h1>Teddy Day 🧸</h1>
+<p>You are my softest comfort and my cutest teddy.</p>
+</div>
+
+<div class="slide">
+<h1>Promise Day 🤝</h1>
+<p>I promise to stay, care, protect, and love you always.</p>
+</div>
+
+<div class="slide">
+<h1>Hug Day 🤗</h1>
+<p>Your hug is the safest place in my universe.</p>
+</div>
+
+<div class="slide">
+<h1>Kiss Day 💋</h1>
+<p>A gentle forehead kiss full of endless love.</p>
+</div>
+
+<div class="slide">
+<h1>Happy Valentine's Day ❤️</h1>
+<p>Sajal, my 3.5 little baccha 🐣❤️<br>
+Will you be my Valentine?<br>
+Forever yours.</p>
+</div>
+
+<script>
+
+/* falling hearts */
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(4+Math.random()*3)+"s";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),7000);
+},300);
+
+/* cinematic slide switching */
+let slides=document.querySelectorAll(".slide");
+let i=0;
+
+setInterval(()=>{
+slides[i].classList.remove("active");
+i=(i+1)%slides.length;
+slides[i].classList.add("active");
+},5000); // every 5 sec
+
+</script>
+
+</body>
+</html>
